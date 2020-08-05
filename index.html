@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"d995eaf5c7",applicationID:"193884810"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1173.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>How to Invest in Stocks: Guide to Investing for Beginners - Intuit Turbo Blog</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://turbo.intuit.com/blog/xmlrpc.php">
+
+	<meta name="description" content="Learn how to get started investing in stocks, no matter your budget, with Turbo&#039;s Guide to Investing for Beginners." />
+<meta name="keywords" content="investments," />
+
+	<!-- This site is optimized with the Yoast SEO plugin v14.5 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<link rel="canonical" href="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="How to Invest in Stocks: Guide to Investing for Beginners - Intuit Turbo Blog" />
+	<meta property="og:description" content="Investing in the stock market is one way to improve your financial standing. But how do you get started? How to invest in stocks really boils down to three easy steps. First, decide if you want to work with a... Full Story" />
+	<meta property="og:url" content="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/" />
+	<meta property="og:site_name" content="Intuit Turbo Blog" />
+	<meta property="article:published_time" content="2019-08-05T21:43:56+00:00" />
+	<meta property="article:modified_time" content="2019-10-24T21:18:47+00:00" />
+	<meta property="og:image" content="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Investing-for-Beginners.jpg" />
+	<meta property="og:image:width" content="1920" />
+	<meta property="og:image:height" content="1254" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://turbo.intuit.com/blog/#website","url":"https://turbo.intuit.com/blog/","name":"Intuit Turbo Blog","description":"","potentialAction":[{"@type":"SearchAction","target":"https://turbo.intuit.com/blog/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/#primaryimage","inLanguage":"en-US","url":"https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Investing-for-Beginners.jpg","width":1920,"height":1254},{"@type":"WebPage","@id":"https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/#webpage","url":"https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/","name":"How to Invest in Stocks: Guide to Investing for Beginners - Intuit Turbo Blog","isPartOf":{"@id":"https://turbo.intuit.com/blog/#website"},"primaryImageOfPage":{"@id":"https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/#primaryimage"},"datePublished":"2019-08-05T21:43:56+00:00","dateModified":"2019-10-24T21:18:47+00:00","author":{"@id":"https://turbo.intuit.com/blog/#/schema/person/b670e8a7d36b297ef587443529d474a0"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/"]}]},{"@type":["Person"],"@id":"https://turbo.intuit.com/blog/#/schema/person/b670e8a7d36b297ef587443529d474a0","name":"nstelmar"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel='dns-prefetch' href='//nexus.ensighten.com' />
+<link rel='dns-prefetch' href='//dwum8argi892z.cloudfront.net' />
+<link rel='dns-prefetch' href='//turbo.intuit.com' />
+<link rel='dns-prefetch' href='//connect.facebook.net' />
+<link rel='dns-prefetch' href='//turbotax.intuit.com' />
+<link rel='dns-prefetch' href='//netdna.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Intuit Turbo Blog &raquo; Feed" href="https://turbo.intuit.com/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Intuit Turbo Blog &raquo; Comments Feed" href="https://turbo.intuit.com/blog/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Intuit Turbo Blog &raquo; How to Invest in Stocks: Guide to Investing for Beginners Comments Feed" href="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/turbo-blog.ctgop-prod.a.intuit.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.2"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://turbo.intuit.com/blog/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel='stylesheet' id='turbotax-fonts-css'  href='https://turbotax.intuit.com/handlebars/common_3.0.615/common/bower_components/avenir/Avenir.css?ver=5.4.2' media='all' />
+<link rel='stylesheet' id='turbotax-style-css'  href='https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/css/dist/style.css?ver=1.5' media='all' />
+<link rel='alternate stylesheet' id='turbotax-style-low-vision-css' title='Accessible' href='https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/css/low-vision.css?ver=5.4.2' media='all' />
+<link rel='stylesheet' id='turbotax-font-awesome-css'  href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css?ver=4.0.3' media='all' />
+<link rel='stylesheet' id='turbotax-media-lounge-css'  href='https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/css/media-lounge.css?ver=1' media='all' />
+<link rel='stylesheet' id='social-logos-css'  href='https://turbo.intuit.com/blog/wp-content/mu-plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=8.7.1' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://turbo.intuit.com/blog/wp-content/mu-plugins/jetpack/css/jetpack.css?ver=8.7.1' media='all' />
+<script src='//nexus.ensighten.com/turbotax/turboblog-prod/Bootstrap.js?ver=5.4.2'></script>
+<script type='text/javascript' src='https://turbo.intuit.com/blog/_static/??-eJzTLy/QzcxLzilNSS3WzwKiwtLUokoopZdVrKOPT4FubmZ6UWJJql5uZh5QsX2uraGppaGFsaGZiWUWACWlILU='></script>
+<script src='https://lib.intuitcdn.net/libs/adobe/visitorapi/4.4.0/visitorapi.min.js?ver=4.4.0'></script>
+<link rel='https://api.w.org/' href='https://turbo.intuit.com/blog/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://turbo.intuit.com/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://turbo.intuit.com/blog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.4.2" />
+<link rel='shortlink' href='https://wp.me/pad758-Vc' />
+<link rel="alternate" type="application/json+oembed" href="https://turbo.intuit.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fturbo.intuit.com%2Fblog%2Finvestments%2Fhow-to-invest-stocks-3546%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://turbo.intuit.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fturbo.intuit.com%2Fblog%2Finvestments%2Fhow-to-invest-stocks-3546%2F&#038;format=xml" />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<style type='text/css'>img#wpstats{display:none}</style><script type="text/javascript">
+	var intuitJsVersion = '1.0';
+</script>
+
+<script language="Javascript1.1"> intuitJsVersion = '1.1'; </script>
+<script language="Javascript1.2"> intuitJsVersion = '1.2'; </script>
+<script language="Javascript1.3"> intuitJsVersion = '1.3'; </script>
+<script language="Javascript1.4"> intuitJsVersion = '1.4'; </script>
+<script language="Javascript1.5"> intuitJsVersion = '1.5'; </script>
+<script language="Javascript1.6"> intuitJsVersion = '1.6'; </script>
+<script language="Javascript1.7"> intuitJsVersion = '1.7'; </script>
+<script language="Javascript1.8"> intuitJsVersion = '1.8'; </script>
+<script language="Javascript1.9"> intuitJsVersion = '1.9'; </script>
+	<style type="text/css">
+		.navbar-default,
+		.navbar-default .navbar-nav > .open > a,
+		.navbar-default .navbar-nav > .open > a:hover,
+		.navbar-default .navbar-nav > .open > a:focus { background-color: #ffffff; }
+		.navbar-default .navbar-nav > li > a,
+		.navbar-default .navbar-nav > li > a:hover,
+		.navbar-default .navbar-nav > li > a:focus,
+		.navbar-default .navbar-nav > .open > a,
+		.navbar-default .navbar-nav > .open > a:hover,
+		.navbar-default .navbar-nav > .open > a:focus { color: #fff; }
+	</style>
+	<link rel="amphtml" href="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/amp/">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Invest in Stocks: Guide to Investing for Beginners" />
+<meta property="og:url" content="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/" />
+<meta property="og:description" content="Investing in the stock market is one way to improve your financial standing. But how do you get started? How to invest in stocks really boils down to three easy steps. First, decide if you want to …" />
+<meta property="article:published_time" content="2019-08-05T21:43:56+00:00" />
+<meta property="article:modified_time" content="2019-10-24T21:18:47+00:00" />
+<meta property="og:site_name" content="Intuit Turbo Blog" />
+<meta property="og:image" content="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Investing-for-Beginners.jpg?resize=1200,630" />
+<meta property="og:image:secure_url" content="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Investing-for-Beginners.jpg?resize=1200,630" />
+<meta property="og:image:width" content="640" />
+<meta property="og:image:height" content="418" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:text:title" content="How to Invest in Stocks: Guide to Investing for Beginners" />
+<meta name="twitter:image" content="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Investing-for-Beginners.jpg?w=640&amp;resize=1200,630" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="icon" href="https://turbo.intuit.com/blog/wp-content/uploads/2018/05/favicon.png?w=32" sizes="32x32" />
+<link rel="icon" href="https://turbo.intuit.com/blog/wp-content/uploads/2018/05/favicon.png?w=32" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://turbo.intuit.com/blog/wp-content/uploads/2018/05/favicon.png?w=32" />
+<meta name="msapplication-TileImage" content="https://turbo.intuit.com/blog/wp-content/uploads/2018/05/favicon.png?w=32" />
+			<link rel="stylesheet" type="text/css" id="wp-custom-css" href="https://turbo.intuit.com/blog/?custom-css=999aaae903" />
+		
+</head>
+<body class="post-template-default single single-post postid-3546 single-format-standard wp-custom-logo group-blog">
+<header class="banner navbar navbar-default navbar-static-top" role="banner">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="https://turbo.intuit.com/blog/" class="custom-logo-link" rel="home"><img width="200" height="62" src="https://turbo.intuit.com/blog/wp-content/uploads/2018/03/logo-black.png" class="custom-logo" alt="Intuit Turbo Blog" /></a>			<a class="signin navbar-toggle dropdown-toggle" data-toggle="collapse" href="#navbar-search" />
+				<span class="glyphicon glyphicon-search">
+					<span class="screen-reader-text">Search</span>
+				</span>
+			</a><div id="navbar-search" class="dropdown-menu">
+	<div class="container">
+		<div class="row t">
+			<div class="search-col search-col-left cell">
+				<h2>Search the Blog</h2>
+
+				<h3>Latest tax and finance news and tips</h3>
+
+				<div class="form-group has-feedback">
+					<form role="search" method="get" class="search-form" action="https://turbo.intuit.com/blog/">
+						<input type="text" class="form-control input-lg" name="s" placeholder="Type term, name, etc..." aria-label="Search the blog" value="">
+						<input type="submit" class="search-submit hidden-xs hidden-sm hidden-md hidden-lg" value="Search">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-1 divider-col cell">
+				<span class="input-divider"></span> <span class="bg">or</span>
+			</div>
+			<div class="search-col search-col-right cell">
+				<h2>Search TurboTax Support</h2>
+
+				<h3>FAQ’s and community answers</h3>
+
+				<div class="form-group has-feedback">
+					<form role="search" method="get" class="search-form" action="https://ttlc.intuit.com/search">
+						<input type="text" class="form-control input-lg" name="q" placeholder="Search the community" aria-label="Search the community" value="">
+						<input type="submit" class="search-submit hidden-xs hidden-sm hidden-md hidden-lg" value="Search">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			<a class="signin navbar-toggle" href="https://turbotax.intuit.com/mytt_login/index.jsp" />Sign In</a>
+		</div>
+
+		<nav class="collapse navbar-collapse" role="navigation">
+			<ul id="menu-primary-menu" class="nav navbar-nav navbar-right"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-6"><a href="https://turbo.intuit.com/blog/">Home</a></li>
+<li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="https://accounts.intuit.com/index.html?offering_id=Intuit.consumer.turboapp.turbowebapplication&#038;redirect_url=https%3A%2F%2Fturbo.intuit.com%2Fapp%2F%3Fref%3Dturbo">Sign In</a></li>
+<li class="menu-item menu-item-search dropdown visible-lg"><a href="https://turbo.intuit.com/blog/search" class="dropdown-toggle"><span class="glyphicon glyphicon-search"><span class="screen-reader-text">Search</span></span></a><div id="navbar-search" class="dropdown-menu">
+	<div class="container">
+		<div class="row t">
+			<div class="search-col search-col-left cell">
+				<h2>Search the Blog</h2>
+
+				<h3>Latest tax and finance news and tips</h3>
+
+				<div class="form-group has-feedback">
+					<form role="search" method="get" class="search-form" action="https://turbo.intuit.com/blog/">
+						<input type="text" class="form-control input-lg" name="s" placeholder="Type term, name, etc..." aria-label="Search the blog" value="">
+						<input type="submit" class="search-submit hidden-xs hidden-sm hidden-md hidden-lg" value="Search">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-1 divider-col cell">
+				<span class="input-divider"></span> <span class="bg">or</span>
+			</div>
+			<div class="search-col search-col-right cell">
+				<h2>Search TurboTax Support</h2>
+
+				<h3>FAQ’s and community answers</h3>
+
+				<div class="form-group has-feedback">
+					<form role="search" method="get" class="search-form" action="https://ttlc.intuit.com/search">
+						<input type="text" class="form-control input-lg" name="q" placeholder="Search the community" aria-label="Search the community" value="">
+						<input type="submit" class="search-submit hidden-xs hidden-sm hidden-md hidden-lg" value="Search">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</li></ul>		</nav>
+			</div>
+</header>
+<div id="navbar-search" class="dropdown-menu">
+	<div class="container">
+		<div class="row t">
+			<div class="search-col search-col-left cell">
+				<h2>Search the Blog</h2>
+
+				<h3>Latest tax and finance news and tips</h3>
+
+				<div class="form-group has-feedback">
+					<form role="search" method="get" class="search-form" action="https://turbo.intuit.com/blog/">
+						<input type="text" class="form-control input-lg" name="s" placeholder="Type term, name, etc..." aria-label="Search the blog" value="">
+						<input type="submit" class="search-submit hidden-xs hidden-sm hidden-md hidden-lg" value="Search">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-1 divider-col cell">
+				<span class="input-divider"></span> <span class="bg">or</span>
+			</div>
+			<div class="search-col search-col-right cell">
+				<h2>Search TurboTax Support</h2>
+
+				<h3>FAQ’s and community answers</h3>
+
+				<div class="form-group has-feedback">
+					<form role="search" method="get" class="search-form" action="https://ttlc.intuit.com/search">
+						<input type="text" class="form-control input-lg" name="q" placeholder="Search the community" aria-label="Search the community" value="">
+						<input type="submit" class="search-submit hidden-xs hidden-sm hidden-md hidden-lg" value="Search">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="page" class="hfeed site">
+
+<div id="content" class="container site-content">
+		<div class="row">
+
+	<div id="primary" class="content-area col-xs-12 col-sm-8">
+			<div class="bcn-breadcrumb">
+		<span><a title="Go to Intuit Turbo Blog." href="https://turbo.intuit.com/blog" class="home"><span>Intuit Turbo Blog</span></a></span> &gt; <span><a title="Go to the Investments category archives." href="https://turbo.intuit.com/blog/category/investments/" class="taxonomy category"><span>Investments</span></a></span> &gt; <span><span class="post post-post current-item">How to Invest in Stocks: Guide to Investing for Beginners</span></span>	</div>
+				<main id="main" class="site-main" role="main">
+
+			
+<article itemscope itemtype="http://schema.org/Article" id="post-3546" class="post-3546 post type-post status-publish format-standard has-post-thumbnail hentry category-investments">
+	<header class="entry-header">
+		<h1 class="entry-title" itemprop="name">How to Invest in Stocks: Guide to Investing for Beginners</h1>				<span class="cat-links">
+				<a href="https://turbo.intuit.com/blog/category/investments/" rel="category tag">Investments</a>		</span>
+				
+		<div class="entry-meta">
+			<span class="posted-on"><a href="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2019-08-05T14:43:56-07:00">August 5, 2019</time> <time class="updated" itemprop="dateModified" datetime="2019-10-24T14:18:47-07:00">October 24, 2019</time></a></span><span class="byline"> / <span class="author vcard"><a href="https://turbo.intuit.com/blog/author/turbo/" title="Posts by Turbo" class="author url fn" rel="author">Turbo</a></span></span>		</div>
+		<!-- .entry-meta -->
+			<img width="653" height="352" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Investing-for-Beginners.jpg?w=653&amp;h=352&amp;crop=1" class="attachment-653x352 size-653x352" alt="Investing for Beginners" />	</header>
+	<!-- .entry-header -->
+
+	<div class="entry-content" itemprop="articleBody">
+		<p>Investing in the stock market is one way to improve your financial standing. But how do you get started? How to invest in stocks really boils down to three easy steps. First, decide if you want to work with a broker or do it on your own by buying shares directly through the company’s stock purchase plan. Next, find shares to buy that provide a fairly safe investment opportunity by doing research. Finally, monitor your investments and make adjustments as necessary.</p>
+<p>Sounds fairly simple, right? That’s because it can be if you’re equipped with the right information. However, <a href="https://news.gallup.com/poll/211052/stock-ownership-down-among-older-higher-income.aspx" target="_blank">only about 31%</a> of Americans between 18 and 29 years old own stocks. Why are so many Americans hesitant to start investing?</p>
+<p><img class="size-full wp-image-3551 aligncenter" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-31-Percent-Own-Stock.png" alt="" width="640" height="230" srcset="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-31-Percent-Own-Stock.png 640w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-31-Percent-Own-Stock.png?resize=300,108 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<p>One reason many people don’t consider investing in the stock market is that there’s a misconception that you need to have a lot of money to do it, which isn’t always the case. There are plenty of investment opportunities that work for a variety of budgets. This misconception <a href="https://www.politifact.com/california/statements/2018/sep/18/ro-khanna/what-percentage-americans-own-stocks/" target="_blank">affects how Americans invest</a>. While more than 50% of Americans do own stock shares, the richest 10% control the majority of the stock value. Despite this, the best part of investing in stocks is that you can always increase the amount of money you spend, as your discretionary income increases.</p>
+<p><img class="size-full wp-image-3553 aligncenter" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Richest-10-Percent.png" alt="" width="505" height="480" srcset="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Richest-10-Percent.png 505w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Richest-10-Percent.png?resize=300,285 300w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Richest-10-Percent.png?resize=367,349 367w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Richest-10-Percent.png?resize=336,319 336w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<p>The second barrier to entry for most people is the fact that investing in stocks seems complicated, which can be intimidating for many first-time investors. However, once you understand how stocks work, it will be clear that investing can be a smart way to make your money work for you. That’s why Turbo has created our Complete Guide to Investing for Beginners! This guide will teach you the basics of how to invest and provide you with the knowledge you need to unlock your financial potential and take control of your future.</p>
+<p>Looking for answers to specific questions, use these links to navigate through the post more efficiently:</p>
+<p><a href="#1">Understanding the Basics of Stocks</a></p>
+<p><a href="#2">How to Get Started Investing in Stocks: Step-by-Step</a></p>
+<p><a href="#3">The Benefits of Investing in Stocks</a></p>
+<p><a href="#4">Factors to Consider Before Investing</a></p>
+<p><a href="#5">Potential Risks &amp; How to Limit Them</a></p>
+<h2 id="1">Understanding the Basics of Stocks</h2>
+<p>Knowing how to invest in stocks boils down to understanding the process. Before we jump into how to buy stocks, there are some basic terms and concepts you should understand.</p>
+<h3>Defining Stock</h3>
+<p>A stock is a method of purchasing a stake in a company. Stocks are sold as shares by entities to raise capital to fund their business operations. If you own a share, you are considered a part-owner in the company and have a claim in their earnings.</p>
+<h3>Cost of Stocks</h3>
+<p>The price of a share of stock will vary between companies. Price is dependent upon the industry and customer base, as well as the economy and political climate. The amount you pay for a share of stock will include the actual price of the stock itself as well as the transaction fee paid to the broker.</p>
+<h3>Common Stocks</h3>
+<p>While there are a lot of categories used to define different <a href="https://www.investopedia.com/ask/answers/difference-between-preferred-stock-and-common-stock/#common-stock" target="_blank">types of stocks</a>, the majority of stocks issued are common stocks. Since you’re just beginning to invest in stocks, we’ll stick to this type for now.</p>
+<p>Common stocks are the most <em>common</em> type of stock that people invest in, and entitles you to claim some of the company’s profits and can also include one vote per share of stock owned. The value of common stocks more or less depends on the company’s performance and goes up and down accordingly.</p>
+<p>As you diversify your investment portfolio, you may want to consider investing in preferred stocks because these shareholders get priority over common shareholders when the company pays out dividends or liquidates.</p>
+<h3>Where Do I Buy Stocks?</h3>
+<p>Stocks are purchased through a stock market. “Stock market” is a generalized term that refers to how stocks are bought and sold. There are thousands of stock market indexes, including the S&amp;P 500, Dow Jones Industrial Average, and the Nasdaq Composite.</p>
+<p>Some markets are focused on certain industries while others are broader. In many cases, you will need a stockbroker to buy and trade stocks, but not always.</p>
+<h3>How to Make Money off of Stocks</h3>
+<p>Fluctuations in stock prices can increase the value of your stock. When the value of a company’s stock shares increases, they are worth more than you paid for. By selling your shares when they are worth more than the cost you paid, you can make a profit.</p>
+<p><img class="size-full wp-image-3547 aligncenter" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Growing-Stock-Revenue.jpg" alt="" width="640" height="427" srcset="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Growing-Stock-Revenue.jpg 1000w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Growing-Stock-Revenue.jpg?resize=300,200 300w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Growing-Stock-Revenue.jpg?resize=768,512 768w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Growing-Stock-Revenue.jpg?resize=523,349 523w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Growing-Stock-Revenue.jpg?resize=478,319 478w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<p>Typically, you can make more money off your shares if you <a href="https://www.investopedia.com/terms/b/buyandhold.asp" target="_blank">hold onto them</a> for a longer period of time because the returns you’re earning on your shares compound year over year, allowing that money to grow. Basically, the more time returns have to grow, the larger they become.</p>
+<p>While stocks are often a safer bet than many investments, <em>nothing</em> is guaranteed since certain circumstances can cause your shares to diminish in value.</p>
+<p><strong>You can also make money off your stock shares when the company issues dividends</strong>. Dividends are often issued to shareholders quarterly. However, you should not rely on dividends as a consistent stream of profit because companies do not have to issue dividends and they are not usually given out by newer companies.</p>
+<p>It is highly recommended that you use your dividends to <a href="https://www.investopedia.com/articles/investing/090915/reinvesting-dividends-pays-long-run.asp" target="_blank">buy more shares</a> through a trading platform or the company’s dividend reinvestment program (DRIP).</p>
+<h2 id="2">How to Invest in Stocks: Step-by-Step</h2>
+<p>The big question, “how to invest in stocks” can make people shut down before they even start because it seems overwhelming but if you go step-by-step, you’ll be on your way to becoming a seasoned investor.</p>
+<h3>Step 1: Set your budget</h3>
+<p>If you’re considering investing in stocks, you’ll first need to figure out how much you can afford to spend. Review your budget and your <a href="https://turbo.intuit.com/blog/real-money-talk/discretionary-income-1118/">discretionary income</a>. A red flag that you’re not ready to invest in stocks is if you have a lot of debt, such as high-interest <a href="https://turbo.intuit.com/blog/credit-cards/choose-a-credit-card-1978/">credit cards</a> or high <a href="https://turbo.intuit.com/blog/debt/getting-a-student-loan-1776/">student loan</a> repayments you’re struggling to manage. Once you’ve considered your financial situation, you can decide <a href="https://turbo.intuit.com/blog/debt/how-to-decide-if-you-should-pay-off-your-debt-or-invest-1176/">to invest or not to invest</a>.</p>
+<p>When evaluating your income and budget, there are a few questions you should ask yourself.</p>
+<ul>
+<li>What portion of your income are you willing to allocate towards stocks?</li>
+<li>If you’re on a really tight budget, is there anything you can cut out that isn’t a necessity? Luxuries such as coffee and eating out can add up. You’d be surprised what reigning in these habits can do for your budget.</li>
+</ul>
+<p>If you don’t have the money to invest in stocks right away, make a savings plan so you can get started as soon as possible. The sooner you begin investing, the more time your money has to grow.</p>
+<p>While it can be difficult to part with some of your comforts, buying stocks is a fairly easy way to set yourself up for the future. If you can only allocate a small part of your budget, don’t be discouraged, at least it’s a starting point.</p>
+<h3>Step 2: Decide whether you are going to do it yourself or want to hire a broker</h3>
+<p>In the interest of saving money, you might assume that your only option is to do it yourself but that’s not necessarily the case. In fact, <a href="https://www.investopedia.com/investing/complete-guide-choosing-online-stock-broker/" target="_blank">investing in stocks typically requires a stockbroker</a>, unless you choose to buy through a company&#8217;s direct stock purchase plan (DSSP).</p>
+<p>DSSP’s allow you to buy ownership of stock shares directly from the company instead of through a market. While this may eliminate the brokerage fee, it also limits your options and potential for greater returns.</p>
+<p>There are a variety of broker options, some of which may fit into your budget. Starting out, you might consider using an upgraded online discount broker. T<strong>hese options often provide resources to help you make decisions</strong> about your investments, but they do not make recommendations on your behalf which is why you may want to allocate part of your funds to a brokerage account once you begin to invest more.</p>
+<p>If you can afford it, a stockbroker can make the process easier by developing a financial plan, providing access to resources, and giving advice.</p>
+<p>The seasoned, <strong>aggressive investor will want a money manager</strong> who will handle investments on your behalf, strategizing how best to allocate your money and achieve the best returns, for a significant management fee.</p>
+<p>As you become a more experienced investor with more financial resources, you will want to consider evolving your investment strategy to maximize your returns.</p>
+<h3>Step 3: Figure out which stock shares to buy</h3>
+<p>Here’s where the process becomes more research-heavy. You should take your time when deciding how to invest your money by taking your time choosing which stocks you want to purchase, instead of jumping on shares at the lowest price. When first starting out, it is usually recommended that you invest in an index fund or a few shares of stocks from multiple companies.</p>
+<p><a href="https://www.investopedia.com/terms/i/indexfund.asp" target="_blank">Index fund</a><a href="https://www.investopedia.com/terms/i/indexfund.asp" target="_blank">s</a>, or exchange-traded funds, more or less imitate the performance of particular stock indexes, like the S&amp;P 500, by buying stocks of the companies listed within that index. Index funds are <strong>considered fairly low risk</strong> because they offer a diversified investment that requires little knowledge or effort on your part.</p>
+<p>If you prefer to choose your own stocks, you could also try choosing a specific company, or two, to purchase shares in. Companies you’ll want to invest in should be in a good position within their market. For instance, those who have a competitive edge are often more likely to generate higher sales and are expected to maintain steady growth. These factors should positively influence the value and stability of your shares.</p>
+<p><img class="size-full wp-image-3550 aligncenter" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-10-Largest-Companies.png" alt="" width="526" height="480" srcset="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-10-Largest-Companies.png 526w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-10-Largest-Companies.png?resize=300,274 300w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-10-Largest-Companies.png?resize=382,349 382w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-10-Largest-Companies.png?resize=350,319 350w" sizes="(max-width: 526px) 100vw, 526px" /></p>
+<p>When investing in companies, <a href="https://www.investopedia.com/articles/investing/072915/single-stocks-your-portfolio-pros-and-cons.asp" target="_blank">the key is to diversify</a> your shares by choosing two or more companies in different industries. This will allow you the opportunity to learn more about how different companies thrive within the stock market, plan future investments, and lower your risk.</p>
+<p>As you learn more about how to invest in stocks, making these decisions will become easier, and even more enjoyable as you begin to see results from your investments.</p>
+<h3>Step 4: Monitor and adjust your investments as needed</h3>
+<p>You should have a goal in mind when you plan your investments such as <a href="https://turbo.intuit.com/blog/retirement/think-its-too-early-to-plan-for-retirement-wrong-1444/">saving for retirement</a> or <a href="https://turbo.intuit.com/blog/relationships/6-things-to-explore-when-youre-creating-a-college-fund-3169/">creating a college fund</a> for your child. <a href="https://www.investopedia.com/articles/investing/093015/how-effectively-monitor-your-stock-holdings.asp" target="_blank">Tracking your stock performance</a> is the best way to ensure that you are on track to meet your goals, protect you from poor investments, and clue you in on how to invest in the future.</p>
+<p>However, this doesn’t necessarily mean you should obsess over the short-term spikes and dips of your stocks. Daily price fluctuations will cause you more stress than they are worth and they are not always a good indicator of the returns the stock will yield over time.</p>
+<p>Instead, you should<strong> primarily focus on the business’s performance as a whole</strong>. Be more diligent about looking into their sales and profit margins. This information can easily be found each quarter when companies release their financial information. You’ll want to compare their current and past performance to see whether they are seeing growth or are doing poorly.</p>
+<p>You should also follow news updates about the company. If they are making improvements on their products or services or are releasing new ones, this can be a good sign for the future value of your stocks.</p>
+<p><img class="size-full wp-image-3549 aligncenter" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Monitoring-Stock-Investments.jpg" alt="" width="640" height="376" srcset="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Monitoring-Stock-Investments.jpg 1000w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Monitoring-Stock-Investments.jpg?resize=300,176 300w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Monitoring-Stock-Investments.jpg?resize=768,451 768w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Monitoring-Stock-Investments.jpg?resize=595,349 595w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Monitoring-Stock-Investments.jpg?resize=543,319 543w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<p>If you’ve invested on your own in DSSP’s, you’ll also receive a statement which should provide information about the dividends you’ve received, if any, and how many stocks you currently hold. These are usually sent out quarterly. At the end of the day, DSSP’s and online brokers will require more work on your end to monitor the health of your investments.</p>
+<p>Whether you find stock investments overwhelming or simply don’t want to deal with the hassle, a full-service stockbroker can also help you monitor your stocks. In fact, many investors find that this perk of having their own broker alleviates a lot of pressure and provides peace of mind.</p>
+<p>In general, if the company is in good financial health and is likely to continue on this path, holding onto your stock will likely be a safe bet. On the other hand, if the company is not doing well and is unlikely to improve, you will probably want to sell your shares.</p>
+<p>Should you decide to sell your shares, you can consider the current price, but depending on the health of the company, sooner may be wiser than later as the stock could see a further decline in value.</p>
+<h2 id="4">Factors to Consider Before Investing</h2>
+<p>While stocks are a good idea for most people, you may want to consider several factors before you jump into investing in stocks.</p>
+<h3>Are Your Finances in Order?</h3>
+<p>Your financial situation will be the top indicator whether now is the right time for you to start investing in the stock market. If you are in substantial debt and have a bad <a href="https://turbo.intuit.com/blog/credit-cards/guide-to-credit-card-utilization-2908/">credit score</a>, you may not want to invest a lot of your money in stocks.</p>
+<p><strong>Focus first on paying off your debt and balancing out your <a href="https://turbo.intuit.com/blog/credit-cards/guide-to-credit-card-utilization-2908/">credit card utilization</a></strong>. However, if you have a small amount of debt like most people, it is not a bad idea to do some limited investing since stocks can be a means to help your money grow.</p>
+<h3>How Much Money Do You Need to Buy Stocks?</h3>
+<p><strong>Basically, anyone with any budget can invest in stocks</strong>. Try starting with just $50 or $100. Just keep in mind that tight-budgeted stock investment will most likely mean you’re going to have to manage it on your own and start out small.</p>
+<p>Stockbrokers usually require $1000’s to be invested in stocks before providing their services.</p>
+<p><img class="size-full wp-image-3552 aligncenter" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Invest-as-Little-as-50.png" alt="" width="505" height="480" srcset="https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Invest-as-Little-as-50.png 505w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Invest-as-Little-as-50.png?resize=300,285 300w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Invest-as-Little-as-50.png?resize=367,349 367w, https://turbo.intuit.com/blog/wp-content/uploads/2019/08/Turbo-Invest-as-Little-as-50.png?resize=336,319 336w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<h3>Which Companies Should You Invest in?</h3>
+<p>Don’t just choose a company because you like them. There are key components that should influence your selection such as:</p>
+<ul>
+<li><strong>Earnings: </strong>This is the amount of profit they saw within a period. Typically, you’ll want to take a look at the last year. You want to see an increase in earnings of about 10% or more.</li>
+<li><strong>Sales: </strong>The amount the company has earned from the sale of products and services in a given period.</li>
+<li><strong>Debt: </strong>Organizations often have some debt to help them continue to reinvest resources and grow. Typically, companies have two kinds of debt: fixed-income securities and loans. You should be cautious if a company has too much debt. To <a href="https://www.investopedia.com/articles/basics/03/091903.asp" target="_blank">assess and compare company debt</a>, consider how much and why type of debt they have, whether they can afford it, and if it’s normal for their industry.</li>
+</ul>
+<p>To research this information, you’ll want to thoroughly review their financial records before making your decision.</p>
+<h2 id="3">The Benefits of Investing in Stocks</h2>
+<p>While you should exercise caution when making any type of investment,<strong> stocks offer many advantages over other options if you have long-term savings goals</strong>.</p>
+<h3>High Returns</h3>
+<p>Throughout history, stocks have been considered a wise investment, earning an <a href="https://www.investopedia.com/ask/answers/042415/what-average-annual-return-sp-500.asp" target="_blank">average annual return of about 10%</a>. This is one of the reasons stocks are a good long-term investment if executed properly.</p>
+<h3>Easy to Exit</h3>
+<p>Stock shares are a liquid investment, meaning you can sell your stocks at any time and receive cash for them. You might want to sell your shares if you’re not happy with your investments or you need money in an emergency.</p>
+<p>Usually, stocks can be sold off at a low transaction cost. If your stocks are performing well, you can often walk away with a decent profit. However, it is important to keep in mind that you do run the risk of suffering a loss on your investment if the timing happens to be bad.</p>
+<h3>Deferred Taxation</h3>
+<p>You’re only taxed on your stock shares when you sell them. So, if you hold onto your stocks for say, 25 years, their value will appreciate that entire time <a href="https://www.investopedia.com/articles/tax/09/tax-effects-capital-gains.asp" target="_blank">without being taxed</a>. And even then, you will be taxed at the lower <a href="https://www.investopedia.com/taxes/capital-gains-tax-101/" target="_blank">long-term capital gains tax</a> rate which means you keep more of the money from your investment.</p>
+<h2 id="5">Potential Risks &amp; How to Limit Them</h2>
+<p>Investing your money in stocks is a risk because the stock market can change at any moment and at the end of the day, you could ultimately suffer a loss. That’s why many new investors start small until they have a better grasp on how to invest in the stock market, how to estimate risk, and what types of losses they’re willing to tolerate.</p>
+<h3>Risks</h3>
+<p>If you are planning on selling your stocks within a few years, you face the greatest financial risk since stocks often offer the best payout when they are held for longer periods of time. The most<a href="https://www.investor.gov/introduction-investing/basics/investment-products/stocks#Risks" target="_blank"> common risks</a> of investing in stocks include:</p>
+<ul>
+<li><strong>Stock market bubbles and crashes</strong></li>
+<li><strong>Changes in purchasing power due to inflation risk</strong></li>
+<li><strong>Liquidity risk</strong></li>
+</ul>
+<p>While these factors may seem completely out of your hands, that’s not entirely true.</p>
+<h3>Minimizing Your Risk</h3>
+<p>There are several actions you can take to help reduce your risk when investing:</p>
+<ul>
+<li><strong>Diversify your investment portfolio</strong></li>
+<li><strong>Don’t invest a large amount of money right off the bat</strong></li>
+<li><strong>Monitor your investments and the financial markets regularly, but not obsessively</strong></li>
+</ul>
+<p>You can also take advice from successful investors and seasoned financial experts &#8211; like Warren Buffet. According to <a href="https://www.investopedia.com/news/buffetts-3-best-rules-stock-investing/" target="_blank">Warren Buffet</a>, “taking this bargain-hunting approach to investing should limit your potential losses in case your estimate of intrinsic value was too high, or if unforeseen events damage a company&#8217;s once-rosy prospects.” His biggest takeaway for beginners? He says, “just casting your lot with the long-term prospects for the U.S. economy and the U.S. stock market may be the safest bet.”</p>
+<p>At the end of the day,<strong> investing in stocks is risky but it’s a calculated risk that can pay off in a big way</strong>. Over a lifetime, many investors find that stocks are a critical component of their financial well-being.</p>
+<h2>You’re Ready to Take a Calculated Risk By Investing in the Stock Market</h2>
+<p>Take advantage of the low-risk, high-reward nature of stocks and start planning for your financial future. Learning the basics of how to invest in stocks with this guide should empower you to start on a firm footing by taking it slow and making smart choices that will help you get your bearings. By following these steps, you can build your way to a strong portfolio.</p>
+<p>If you’re still uneasy about diving into investing in stocks, don’t be discouraged. Our knowledgeable team members are here for you. With the help of Turbo and the right broker, you can establish a healthy investment portfolio to grow your wealth</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a href="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/?share=twitter"rel="nofollow noopener noreferrer" data-shared="sharing-twitter-3546" class="share-twitter sd-button share-icon"  target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a href="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/?share=facebook"rel="nofollow noopener noreferrer" data-shared="sharing-facebook-3546" class="share-facebook sd-button share-icon"  target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-end"></li></ul></div></div></div>	<div class="row feedback-unit"><div class="col-xs-12">
+			<nav class="navigation post-navigation" role="navigation">
+			<h2 class="screen-reader-text">Post navigation</h2>
+
+			<div class="nav-links">
+				<div class="nav-previous"><a href="https://turbo.intuit.com/blog/relationships/companies-with-healthiest-benefits-3468/" rel="prev"><span class="fa fa-angle-left"></span></a></div> <div class="nav-next"><a href="https://turbo.intuit.com/blog/credit-cards/do-federal-interest-rates-affect-my-debt-3503/" rel="next"><span class="fa fa-angle-right"></span></a></div>			</div>
+			<!-- .nav-links -->
+		</nav><!-- .navigation -->
+			</div></div>
+		</div>
+	<!-- .entry-content -->
+
+	<footer class="entry-footer">
+					<span class="tag-heading">Tags:</span> </span>
+						</footer>
+	<!-- .entry-footer -->
+	<div class="post_author_box clearfix">
+	<img width="96" height="96" src="https://turbo.intuit.com/blog/wp-content/uploads/2018/07/turbo_social-profile-image.jpg?w=96" class="avatar avatar-96 photo wp-post-image" alt="" />	<h3>
+		<a href="https://turbo.intuit.com/blog/author/turbo/" title="Posts by Turbo" class="author url fn" rel="author">Turbo</a>	</h3>
+
+	<p>From the maker of TurboTax, meet Turbo: the financial health profile that shows where you truly stand – beyond the credit score.</p>
+	</div>
+	</article>
+
+<div id="comments" class="comments-area">
+
+	
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://turbo.intuit.com/blog/investments/how-to-invest-stocks-3546/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://turbo.intuit.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='3546' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="3801c91897" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="179"/></p></form>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+
+		</main>
+		<!-- #main -->
+	</div><!-- #primary -->
+
+<div id="secondary" class="widget-area col-xs-12 col-sm-4" role="complementary">
+
+	<aside id="custom_html-5" class="widget_text widget widget_custom_html"><h3 class="widget-title">See where you truly stand financially with Turbo</h3><div class="textwidget custom-html-widget"><div class="row"><a class="btn btn-lg btn-orange btn-block turbo-get-your-numbers-sidebar" href="https://turbo.intuit.com/">Get your numbers FREE</a></div>
+<hr>
+<h3 class="widget-title">Connect with us</h3>
+<div class="row"><div class="col-md-6 social-shares form-group">
+<a href="https://www.instagram.com/intuitturbo/"><img src="https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/img/social_instagram.png" alt="" width="25" height="25"></a>
+<a href="https://www.facebook.com/IntuitTurbo/"><img src="https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/img/social_facebook.jpg" alt="" width="25" height="25"></a>
+<a href="https://twitter.com/IntuitTurbo"><img src="https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/img/social_twitter.jpg" alt="" width="25" height="25"></a>
+<a href="https://turbo.intuit.com/blog/feed/"><img src="https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/img/social_rss.jpg" alt="" width="25" height="25"></a>
+</div>
+</div></div></aside><aside id="tt-editors-pick-widget-3" class="widget tt-editors-pick-widget"><h3 class="widget-title">Turbo Editor’s Picks</h3><ul>		<li>
+					<a href="https://turbo.intuit.com/blog/credit-score/credit-score-range-78/" class="editors-pick-img"><img width="111" height="62" src="https://turbo.intuit.com/blog/wp-content/uploads/2018/03/couple-at-park.jpg?w=111&amp;h=62&amp;crop=1" class="alignleft" alt="What Your Credit Score Says About You" /></a>
+					<a href="https://turbo.intuit.com/blog/credit-score/credit-score-range-78/" class="editors-pick-title">What Your Credit Score Says About You</a>
+			<span class="editors-pick-meta"><span class="posted-on"><a href="https://turbo.intuit.com/blog/credit-score/credit-score-range-78/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2019-05-29T09:42:08-07:00">May 29, 2019</time> <time class="updated" itemprop="dateModified" datetime="2019-05-30T07:44:15-07:00">May 30, 2019</time></a></span><span class="byline"> / <span class="author vcard"><a href="https://turbo.intuit.com/blog/author/farnoosh-torabi/" title="Posts by Farnoosh Torabi" class="author url fn" rel="author">Farnoosh Torabi</a></span></span></span>
+		</li>
+				<li>
+					<a href="https://turbo.intuit.com/blog/relationships/the-top-financial-goals-everyone-needs-for-summer-2019-3034/" class="editors-pick-img"><img width="111" height="62" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/05/Stocksy_txpecfa188b1cL200_Medium_2064496.jpg?w=111&amp;h=62&amp;crop=1" class="alignleft" alt="Shot of beautiful young couple drinking orange juice in the street.Portrait of pretty girlfriend and tattooed boyfriend with orange juice in glass bottle laughing at something far while sitting on rock with rollerblades and backpacks at the beach." /></a>
+					<a href="https://turbo.intuit.com/blog/relationships/the-top-financial-goals-everyone-needs-for-summer-2019-3034/" class="editors-pick-title">The Top Financial Goals Everyone Needs for Summer 2019</a>
+			<span class="editors-pick-meta"><span class="posted-on"><a href="https://turbo.intuit.com/blog/relationships/the-top-financial-goals-everyone-needs-for-summer-2019-3034/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2019-05-16T12:07:38-07:00">May 16, 2019</time></a></span><span class="byline"> / <span class="author vcard"><a href="https://turbo.intuit.com/blog/author/lauren-bowling/" title="Posts by Lauren Bowling" class="author url fn" rel="author">Lauren Bowling</a></span></span></span>
+		</li>
+				<li>
+					<a href="https://turbo.intuit.com/blog/relationships/by-30-you-need-to-know-these-14-financial-terms-2829/" class="editors-pick-img"><img width="111" height="62" src="https://turbo.intuit.com/blog/wp-content/uploads/2019/04/Stocksy_txpfd09d0933yJ200_Medium_1722924.jpg?w=111&amp;h=62&amp;crop=1" class="alignleft" alt="Confident female artist smiling while using laptop at table in studio" /></a>
+					<a href="https://turbo.intuit.com/blog/relationships/by-30-you-need-to-know-these-14-financial-terms-2829/" class="editors-pick-title">By 30 You Need to Know These 14 Financial Terms</a>
+			<span class="editors-pick-meta"><span class="posted-on"><a href="https://turbo.intuit.com/blog/relationships/by-30-you-need-to-know-these-14-financial-terms-2829/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2019-04-23T14:43:50-07:00">April 23, 2019</time></a></span><span class="byline"> / <span class="author vcard"><a href="https://turbo.intuit.com/blog/author/marsha-barnes/" title="Posts by Marsha Barnes" class="author url fn" rel="author">Marsha Barnes</a></span></span></span>
+		</li>
+		</aside></ul></div><!-- #secondary -->
+</div>
+</div><!-- #content -->
+</div><!-- #page -->
+<footer id="footer" class="site-footer" role="contentinfo">
+<div class="blog-linkmap">
+	<div class="container">
+		<div class="row clearfix">
+			<ul class=" col-md-12 clearfix footer-row">
+				<li class="col-xs-12 col-md-3">
+									</li>
+
+				<li class="col-xs-12">
+					<h4 data-toggle="collapse" data-target="#disclaimer" class="visible-sm visible-xs toggle-header disclaimer-head">
+						Disclaimer						<span class="TD-arrow toggle-arrow"></span>
+					</h4>
+
+					<div id="disclaimer" class="collapse in">
+						<aside id="custom_html-7" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><p>The views expressed on this blog are those of the bloggers, and not necessarily those of Intuit. Third-party blogger may have received compensation for their time and services. <a href="https://turbo.intuit.com/blog/disclosure-regarding-third-party-contributors-on-the-turbo-blog/">Click here</a> to read full disclosure on <a href="https://turbo.intuit.com/blog/disclosure-regarding-third-party-contributors-on-the-turbo-blog/">third-party bloggers</a>.  This blog does not provide legal, financial, accounting or tax advice. The content on this blog is "as is" and carries no warranties. Intuit does not warrant or guarantee the accuracy, reliability, and completeness of the content on this blog.  After 20 days, comments are closed on posts. Intuit may, but has no obligation to, monitor comments. Comments that include profanity or abusive language will not be posted. <a href="https://turbo.intuit.com/terms">Click here</a> to read full <a href="https://turbo.intuit.com/terms">Terms of Service</a>.</p></div></aside>					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="linkmap">
+	<div class="container">
+		<div class="row clearfix">
+				</div>
+			</div>
+</div>
+	<div class="container">
+		<div class="row shared-footer">
+			<div class="col-xs-12 text-center">
+				<!-- placeholder footer -->
+				<div class="footer-logo centered"></div>
+				
+				<div class="certified-logo centered">
+					<a class="logo-nResult" href="http://www.nresult.com/certified-product/intuit-turbotax-2019/" target="_blank">Certified by nResult</a>
+					<a class="logo-cLevel" href="http://c-levelsecurity.com/certified/intuit/Intuit_turbotax.html" target="_blank">Security Certification of the TurboTax Online application has been performed by C-Level Security</a>
+					<a class="logo-trustE" href="http://www.truste.org/ivalidate.php?url=turbotax.intuit.com&amp;sealid=101" target="_blank">Reviewed by TRUSTe, Site Privacy Statement</a>
+					<p class="logo-aEfile">Authorized e-file Provider</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</footer>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/turbo.intuit.com\/blog\/investments\/how-to-invest-stocks-3546\/":3546};
+	</script>
+				<script type='text/javascript' src='https://turbo.intuit.com/blog/_static/??-eJyVkNsKwjAMhl/IGoYH3IXIHkAQfILZFtbSNiXJNubTWzyhV7rbJN+XP4ExK41JbBKQzkbL4JL0TqBltsLgGYxjgYjGUnJXWkaXlp4X8IvUGDOm0ma4IAoLtfnh8h+Vv3WvIG9SdThYUoYwGxzTbBFrwhDOeZpFxdZ9rXJJh97Y+0C5OBaBIpvDNDtP0xxPhIMrf36yh7ivNnW1W1Xbde1v2ICgzA=='></script>
+<script src='https://dwum8argi892z.cloudfront.net/js/cdc_lib_min_latest.js?ver=1'></script>
+<script src='https://turbo.intuit.com/blog/wp-content/themes/intuit/assets/js/analytics-config-prod.js?ver=1'></script>
+<script>
+var FB_WP=FB_WP||{};FB_WP.queue={_methods:[],flushed:false,add:function(fn){FB_WP.queue.flushed?fn():FB_WP.queue._methods.push(fn)},flush:function(){for(var fn;fn=FB_WP.queue._methods.shift();){fn()}FB_WP.queue.flushed=true}};window.fbAsyncInit=function(){FB.init("https:\/\/turbo.intuit.com\/blog\/wp-content\/plugins\/facebook\/channel.php");if(FB_WP && FB_WP.queue && FB_WP.queue.flush){FB_WP.queue.flush()}}
+</script>
+<div id="fb-root"></div><script type="text/javascript">(function(d){var id="facebook-jssdk";if(!d.getElementById(id)){var js=d.createElement("script"),ref=d.getElementsByTagName("script")[0];js.id=id,js.async=true,js.src="https:\/\/connect.facebook.net\/en_US\/all.js",ref.parentNode.insertBefore(js,ref)}})(document)</script>
+<script>
+var intuitClickstreamData = {"keys":{"segmentKey":"Nk7VROOXUzOv85aunjYkceQylDQ8GXbv","adobeVisitorApi":{"enabled":true,"marketingCloudOrgId":"969430F0543F253D0A4C98C6@AdobeOrg","trackingServer":"ci.intuit.com","trackingServerSecure":"sci.intuit.com","cname":{"enabled":false}}},"page":{"scope_area":"blog|post","screen":"investments|how_to_invest_stocks","url":"https:\/\/turbo.intuit.com\/blog\/investments\/how-to-invest-stocks-3546","scope":"turbo","event_sender_name":"turboblog","tracking_application_name":"turbo","event_schema_id":"urn:clickstream:turbo:0_1:track_event.schema.json","cid":null,"content_id":3546,"language":"en_US"},"events":{"click":[{"selector":".custom-logo-link","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"button","ui_object_detail":"logo","ui_access_point":"header"}}},{"selector":"#menu-primary-menu a","data":{"event":"content:engaged","properties":{"ui_action":"selected","ui_object":"menu","ui_object_detail":"%text%","ui_access_point":"header"}}},{"selector":"#menu-alternative-category-menu a:contains(\"Your Stories\")","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"submenu","ui_object_detail":"your_stories","ui_access_point":"content"}}},{"selector":"#menu-alternative-category-menu .dropdown-toggle:contains(\"News & Trends\")","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"submenu","ui_object_detail":"news_trends","ui_access_point":"content"}}},{"selector":"#menu-alternative-category-menu > li:first-child .dropdown-menu a","data":{"event":"content:engaged","properties":{"object_detail":"%text%","ui_action":"selected","ui_object":"submenu","ui_object_detail":"your_money|%text%","ui_access_point":"content"}}},{"selector":"#menu-alternative-category-menu > li:not(:first-child) .dropdown-menu a","data":{"event":"content:engaged","properties":{"object_detail":"%text%","ui_action":"selected","ui_object":"submenu","ui_object_detail":"your_life|%text%","ui_access_point":"content"}}},{"selector":"#secondary a[href=\"https:\/\/www.facebook.com\/IntuitTurbo\/\"]","data":{"event":"content:engaged","properties":{"object_detail":"facebook","ui_action":"clicked","ui_object":"icon","ui_object_detail":"facebook_page","ui_access_point":"right_sidebar|connect_with_us"}}},{"selector":"#footer .icn-facebook","data":{"event":"content:engaged","properties":{"object_detail":"facebook","ui_action":"clicked","ui_object":"icon","ui_object_detail":"facebook_page","ui_access_point":"footer"}}},{"selector":"#secondary a[href=\"https:\/\/twitter.com\/IntuitTurbo\"]","data":{"event":"content:engaged","properties":{"object_detail":"twitter","ui_action":"clicked","ui_object":"icon","ui_object_detail":"twitter_page","ui_access_point":"right_sidebar|connect_with_us"}}},{"selector":"#footer .icn-twitter","data":{"event":"content:engaged","properties":{"object_detail":"twitter","ui_action":"clicked","ui_object":"icon","ui_object_detail":"twitter_page","ui_access_point":"footer"}}},{"selector":"#secondary a[href=\"https:\/\/turbo.intuit.com\/blog\/feed\/\"]","data":{"event":"content:engaged","properties":{"object_detail":"rss","ui_action":"clicked","ui_object":"icon","ui_object_detail":"rss_page","ui_access_point":"right_sidebar|connect_with_us"}}},{"selector":"#footer .icn-rss","data":{"event":"content:engaged","properties":{"object_detail":"rss","ui_action":"clicked","ui_object":"icon","ui_object_detail":"rss_page","ui_access_point":"footer"}}},{"selector":"#footer .icn-instagram","data":{"event":"content:engaged","properties":{"object_detail":"instagram","ui_action":"clicked","ui_object":"icon","ui_object_detail":"instagram_page","ui_access_point":"footer"}}},{"selector":"#secondary a[href=\"https:\/\/www.instagram.com\/intuitturbo\/\"]","data":{"event":"content:engaged","properties":{"object_detail":"instagram","ui_action":"clicked","ui_object":"icon","ui_object_detail":"instagram_page","ui_access_point":"right_sidebar|connect_with_us"}}},{"selector":".sharedaddy .share-twitter a","data":{"event":"content:engaged","properties":{"object_detail":"twitter","ui_action":"clicked","ui_object":"icon","ui_object_detail":"twitter_share","ui_access_point":"below_content"}}},{"selector":".sharedaddy .share-facebook a","data":{"event":"content:engaged","properties":{"object_detail":"facebook","ui_action":"clicked","ui_object":"icon","ui_object_detail":"facebook_share","ui_access_point":"below_content"}}},{"selector":".at-svc-facebook","data":{"event":"content:engaged","properties":{"object_detail":"facebook","ui_action":"clicked","ui_object":"icon","ui_object_detail":"facebook_share","ui_access_point":"content"}}},{"selector":".at-svc-twitter","data":{"event":"content:engaged","properties":{"object_detail":"twitter","ui_action":"clicked","ui_object":"icon","ui_object_detail":"twitter_share","ui_access_point":"content"}}},{"selector":".at-svc-print","data":{"event":"content:engaged","properties":{"object_detail":"print","ui_action":"clicked","ui_object":"icon","ui_object_detail":"print_share","ui_access_point":"content"}}},{"selector":".at-svc-pinterest_share","data":{"event":"content:engaged","properties":{"object_detail":"pinterest","ui_action":"clicked","ui_object":"icon","ui_object_detail":"pinterest_share","ui_access_point":"content"}}},{"selector":".at-svc-linkedin","data":{"event":"content:engaged","properties":{"object_detail":"linkedin","ui_action":"clicked","ui_object":"icon","ui_object_detail":"linkedin_share","ui_access_point":"content"}}},{"selector":".at-svc-email, .at-svc-mailto","data":{"event":"content:engaged","properties":{"object_detail":"email","ui_action":"clicked","ui_object":"icon","ui_object_detail":"email_share","ui_access_point":"content"}}},{"selector":".turbo-get-your-numbers-sidebar","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"button","ui_object_detail":"get_your_numbers_free","ui_access_point":"right_sidebar"}}},{"selector":".tt-editors-pick-widget a","data":{"event":"content:engaged","properties":{"object_detail":"editors_picks","ui_action":"clicked","ui_object":"link","ui_object_detail":{"selector":{"closest":"li","find":".editors-pick-title"},"source":"%text%"},"ui_access_point":"right_sidebar|editors_picks"}}},{"selector":".entry-content a:not(.share-icon, .bce-start-article, .bce-signin-article)","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"%text%","ui_access_point":"content"}}},{"selector":"#footer .container > div:not(.social-links) a, .blog-linkmap a","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"%href%","ui_access_point":"footer"}}},{"selector":".entry-cta .bce-signin-article","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"button","ui_object_detail":"sign_in","ui_access_point":"below_content"}}},{"selector":".entry-cta .bce-start-article","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"button","ui_object_detail":"start_for_free","ui_access_point":"below_content"}}},{"selector":".jp-relatedposts a","data":{"event":"content:engaged","properties":{"object_detail":"related_content","ui_action":"clicked","ui_object":"link","ui_object_detail":"%text%","ui_access_point":"below_content"}}},{"selector":".nav-next a","data":{"event":"content:engaged","properties":{"object_detail":"next","ui_action":"clicked","ui_object":"button","ui_object_detail":"next_page","ui_access_point":"below_content"}}},{"selector":".nav-previous a","data":{"event":"content:engaged","properties":{"object_detail":"previous","ui_action":"clicked","ui_object":"button","ui_object_detail":"previous_page","ui_access_point":"below_content"}}},{"selector":".entry-more-link","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"full_story","ui_access_point":"content"}}},{"selector":".entry-title a","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"title","ui_access_point":"content"}}},{"selector":".entry-thumbnail img","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"%alt%","ui_access_point":"content"}}},{"selector":".featured-entry .entry-title a, .featured-entry .read-more","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"%href%","ui_access_point":"hero"}}},{"selector":".wheretonext-hero .btn-twitter","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_facebook_share","ui_access_point":"rmt_home_hero"}}},{"selector":".wheretonext-hero .facebook-link a","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_facebook_share","ui_access_point":"rmt_home_hero"}}},{"selector":".wheretonext-hero .instagram-link a","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_facebook_share","ui_access_point":"rmt_home_hero"}}},{"selector":".wheretonext-hero .btn-twitter, .wheretonext-hero .facebook-link a, .wheretonext-hero .instagram-link a","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_hero_carousel","ui_access_point":"rmt_home_hero"}}},{"selector":".wheretonext--be-inspired .turbo-video-wrapper .turbo-video","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_video_carousel","ui_access_point":"rmt_carousel"}}},{"selector":".wheretonext-share .btn-twitter","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_facebook_share","ui_access_point":"rmt_sub_share"}}},{"selector":".wheretonext-share .facebook-link a","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_facebook_share","ui_access_point":"rmt_sub_share"}}},{"selector":".wheretonext-share .instagram-link a","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_facebook_share","ui_access_point":"rmt_sub_share"}}},{"selector":".wheretonext--mobile a.google-play-download","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_mobile_google_play_store_download","ui_access_point":"rmt_home_footer"}}},{"selector":".wheretonext--mobile a.app-store-download","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_mobile_ios_app_store_download","ui_access_point":"rmt_home_footer"}}},{"selector":".wheretonext--thanks-for-joining .btn-build-savings","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_build_savings","ui_access_point":"rmt_carousel"}}},{"selector":".wheretonext--thanks-for-joining .btn-pay-off-debt","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_pay_off_debt","ui_access_point":"rmt_carousel"}}},{"selector":".wheretonext--thanks-for-joining .btn-boost-credit-score","data":{"event":"content:engaged","properties":{"ui_action":"clicked","ui_object":"link","ui_object_detail":"rmt_boost_credit_score","ui_access_point":"rmt_carousel"}}}],"hover":[{"selector":"#menu-alternative-category-menu a:contains(\"Your Money\")","on":{"data":{"event":"content:engaged","properties":{"ui_action":"opened","ui_object":"submenu","ui_object_detail":"your_money","ui_access_point":"content"}}},"out":{"data":{"event":"content:engaged","properties":{"ui_action":"closed","ui_object":"submenu","ui_object_detail":"your_money","ui_access_point":"content"}}}},{"selector":"#menu-alternative-category-menu .dropdown-toggle:contains(\"Your Life\")","on":{"data":{"event":"content:engaged","properties":{"ui_action":"opened","ui_object":"submenu","ui_object_detail":"your_life","ui_access_point":"content"}}},"out":{"data":{"event":"content:engaged","properties":{"ui_action":"closed","ui_object":"submenu","ui_object_detail":"your_life","ui_access_point":"content"}}}}],"video":{"started":{"data":{"event":"content:engaged","properties":{"object_detail":"","ui_action":"clicked","ui_object":"video_content","ui_object_detail":"","ui_access_point":"content"}}},"playing":{"data":{"event":"content:engaged","properties":{"object_detail":"","ui_action":"playing","ui_object":"video_content","ui_object_detail":"","ui_access_point":"content"}}}},"submit":[{"selector":".search-form","data":{"event":"content:engaged","properties":{"object_detail":"blog","ui_object_detail":"blog","ui_action":"clicked","ui_object":"search","search_term":{"selector":".search-form input[type=\"text\"]","source":"%val%","snake_case":true},"ui_access_point":"header"}}},{"selector":"#commentform","data":{"event":"content:engaged","properties":{"object_detail":"blog","ui_object_detail":"blog","ui_action":"clicked","ui_object":"comment","ui_access_point":"content"}}}]}};
+</script>
+<script type='text/javascript' src='https://turbo.intuit.com/blog/_static/??/wp-content/themes/intuit/assets/js/dist/clickstream.min.js,/wp-includes/js/wp-embed.min.js,/wp-content/mu-plugins/akismet/_inc/form.js?m=1593616743j'></script>
+<script>
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+</script>
+<script src='https://turbo.intuit.com/blog/wp-content/mu-plugins/jetpack/_inc/build/sharedaddy/sharing.min.js?ver=8.7.1'></script>
+<script>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+</script>
+<script>
+		var websdk_tracker = new intuit.web.analytics();
+		if ( window.websdk_config ) {
+			if ( window.websdk_config.inheritances.page_parent_sitecatalyst ) {
+							window.websdk_config.inheritances.page_parent_sitecatalyst.c6 = "Turbo Blog";
+										window.websdk_config.inheritances.page_parent_sitecatalyst.c5 = "Turbo Web";
+						}
+
+			window.websdk_config.dom_events = [{"event":"load","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c33":"#CAMPAIGN_ID#"}}]}},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Sign in to start","pev2":"clicked Sign in to start","v29":"hero-unit header"}}]},"css_selector":".hero-wrap a.beacon-click-event"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Sign in to start","pev2":"clicked Sign in to start","v29":"getting started cta"}}]},"css_selector":".peer2peer-how-it-works a.beacon-click-event"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked #STD_LINK_INNER_TEXT#","pev2":"clicked #STD_LINK_INNER_TEXT#","v29":"blog-right sidebar"}}]},"css_selector":".bce-signin-sidebar"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked #STD_LINK_INNER_TEXT#","pev2":"clicked #STD_LINK_INNER_TEXT#","v29":"blog-right sidebar"}}]},"css_selector":".bce-start-sidebar"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked #STD_LINK_INNER_TEXT#","pev2":"clicked #STD_LINK_INNER_TEXT#","v29":"blog-below article"}}]},"css_selector":".bce-signin-article"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked #STD_LINK_INNER_TEXT#","pev2":"clicked #STD_LINK_INNER_TEXT#","v29":"blog-below article"}}]},"css_selector":".bce-start-article"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Continue to Persona Questions","pev2":"clicked Continue to Persona Questions"}}]},"css_selector":".personalization-ribbon .beacon-click-event"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Subscribe Now","pev2":"clicked Subscribe Now","v29":"blog-right sidebar"}}]},"css_selector":".turbotax-subscribe-widget input[type='submit']"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Related Articles","pev2":"clicked Related Articles"}}]},"css_selector":".jp-relatedposts"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Get your numbers FREE","pev2":"clicked Get your numbers FREE","v29":"blog-right sidebar"}}]},"css_selector":".turbo-get-your-numbers-sidebar"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Home RMT Twitter Share","pev2":"clicked Home RMT Twitter Share"}}]},"css_selector":".wheretonext-hero button.btn-twitter"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Home RMT Facebook Share","pev2":"clicked Home RMT Facebook Share"}}]},"css_selector":".wheretonext-hero .share-links .facebook-link a"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked RMT Home Instagram Share","pev2":"clicked RMT Home Instagram Share"}}]},"css_selector":".wheretonext-hero .share-links .instagram-link a"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"RMT Home carousel triggered","pev2":"RMT Home carousel triggered"}}]},"css_selector":".wheretonext-hero button.btn-twitter, .wheretonext-hero .share-links .facebook-link a, .wheretonext-hero .share-links .instagram-link a"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked RMT Subpage Facebook Share","pev2":"clicked RMT Subpage Facebook Share"}}]},"css_selector":".wheretonext-share .share-links .facebook-link a"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked RMT Subpage Instagram Share","pev2":"clicked RMT Subpage Instagram Share"}}]},"css_selector":".wheretonext-share .share-links .instagram-link a"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked RMT Subpage Twitter Share","pev2":"clicked RMT Subpage Twitter Share"}}]},"css_selector":".wheretonext-share button.btn-twitter"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked RMT Google Play Download","pev2":"clicked RMT Google Play Download"}}]},"css_selector":"#footer-realmoneytalk a.google-play-download"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked RMT App Store Download","pev2":"clicked RMT App Store Download"}}]},"css_selector":"#footer-realmoneytalk a.app-store-download"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Carousel Click Build Savings","pev2":"clicked Carousel Click Build Savings"}}]},"css_selector":".wheretonext--thanks-for-joining .btn-build-savings"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Carousel Click Pay Off Debt","pev2":"clicked Carousel Click Pay Off Debt"}}]},"css_selector":".wheretonext--thanks-for-joining .btn-pay-off-debt"},{"event":"click","capture":{"iac":[{"inherit_from":["page_parent_iac"],"properties":{"event.event_category":"dom","event.event_name":"click","event.properties.ui_element.id":"#STD_LINK_ID#","event.properties.ui_element.text":"#STD_LINK_INNER_TEXT#","event.properties.ui_element.name":"#STD_LINK_NAME#","event.properties.ui_element.group-name":"#UI_GROUP_NAME#","event.properties.link_url":"#STD_LINK_HREF#"}}],"siteCatalyst":[{"inherit_from":["page_parent_sitecatalyst"],"properties":{"c14":"clicked Carousel Click Boost Credit Score","pev2":"clicked Carousel Click Boost Credit Score"}}]},"css_selector":".wheretonext--thanks-for-joining .btn-boost-credit-score"}];
+			window.websdk_tracker.init(websdk_config);
+		}
+		</script>
+		<script type='text/javascript' src='https://stats.wp.com/e-202032.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.7.1',blog:'150888850',post:'3546',tz:'-7',srv:'turbo-blog.ctgop-prod.a.intuit.com'} ]);
+	_stq.push([ 'clickTrackerInit', '150888850', '3546' ]);
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"d995eaf5c7","applicationID":"193884810","transactionName":"ZwcBZ0oEV0IAVBANWl5NIlBMDFZfTkQNClJcBw==","queueTime":0,"applicationTime":229,"atts":"S0AWEQIeRB1DVkZeTk0f","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
